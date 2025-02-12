@@ -1,0 +1,22 @@
+{% extends 'mcq_test/base.html' %}
+{% block title %}Edit Choice{% endblock %}
+{% block content %}
+<h2>Edit Choices for the Question: {{question.text}} </h2>
+<form method="post">
+	{% csrf_token %}
+	{% for choice in choices %}
+	<div class="choice">
+		<label for="choice_{{choice.id}}">{{choice.text}}</label>
+		<input type="hidden" name="choice_id" value="{{choice.id}}">
+		<input type="text" name="text" value="{{choice.text}}">
+		<label for="is_correct_{{choice.id}}">Is Correct</label>
+		<select name="is_correct">
+			<option value="true" {% if choice.is_correct %}selected{% endif %}>True</option>
+			<option value="false" {% if not choice.is_correct %}selected{% endif %}>False</option>
+		</select>
+	</div>
+	{% endfor %}
+	<button type="submit">Save Choice</button>
+</form>
+<a href="/">Home</a>
+{% endblock %}

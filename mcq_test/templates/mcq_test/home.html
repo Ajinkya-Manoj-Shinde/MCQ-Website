@@ -1,0 +1,16 @@
+{% extends 'mcq_test/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h2>Available Tests</h2>
+{% if user.is_authenticated %}
+<a href="{% url 'create_test' %}">Create New Test</a>
+<a href="{% url 'logout' %}">Logout</a>
+{% else %}
+<a href="{% url 'login' %}">Teacher Login</a>
+{% endif %}
+<ul>
+	{% for test in tests %}
+	<li><a href="{% url 'student_info' test.id %}">{{ test.title }}</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

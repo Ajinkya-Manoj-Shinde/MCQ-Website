@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{% block title %}MCQ App{% endblock %}</title>
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+
+		.container {
+			width: 80%;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>MCQ Application</h1>
+		{% block content %}{% endblock %}
+	</div>
+</body>
+
+</html>

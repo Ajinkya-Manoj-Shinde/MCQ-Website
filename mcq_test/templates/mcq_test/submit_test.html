@@ -1,0 +1,8 @@
+{% extends 'mcq_test/base.html' %}
+{% block title %}Submit Test{% endblock %}
+{% block content %}
+<h2>Test Submitted!</h2>
+<p>Your Score: {{ test_attempt.score }}</p>
+<p>You got {{ correct_answers }} questions correct!</p>
+<a href="/">Back to Home</a>
+{% endblock %}

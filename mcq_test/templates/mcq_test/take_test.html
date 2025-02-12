@@ -1,0 +1,20 @@
+{% extends 'mcq_test/base.html' %}
+{% block title %}Take Test{% endblock %}
+{% block content %}
+<h2>Taking Test: {{ test.title }}</h2>
+<p>Time Limit: {{test.time_limit}} minutes</p>
+<p>Student Name: {{student.name}}</p>
+<p>Student En no: {{student.enrollment_number}}</p>
+<p>Student Email: {{student.email}}</p>
+<form method="post">
+	{% csrf_token %}
+	{% for question in questions %}
+	<h3>{{ question.text }}</h3>
+	{% for choice in question.choices.all %}
+	<input type="radio" id="choice_{{ choice.id }}" name="question_{{ question.id }}" value="{{ choice.id }}">
+	<label for="choice_{{ choice.id }}">{{ choice.text }}</label><br>
+	{% endfor %}
+	{% endfor %}
+	<button type="submit">Submit Test</button>
+</form>
+{% endblock %}

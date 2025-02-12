@@ -1,0 +1,10 @@
+{% extends 'mcq_test/base.html' %}
+{% block title %}Student Information{% endblock %}
+{% block content %}
+<h2>Enter Your Information to Take the Test: {{test.title}}</h2>
+<form method="post">
+	{% csrf_token %}
+	{{ student_form.as_p }}
+	<button type="submit">Start Test</button>
+</form>
+{% endblock %}

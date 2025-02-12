@@ -1,0 +1,27 @@
+{% extends 'mcq_test/base.html' %}
+{% block title %}Test Results{% endblock %}
+{% block content %}
+<h2>Results for Test: {{ test.title }}</h2>
+<table>
+	<thead>
+		<tr>
+			<th>Student Name</th>
+			<th>Enrollment Number</th>
+			<th>Score</th>
+			<th>Start Time</th>
+			<th>End Time</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for attempt in test_attempts %}
+		<tr>
+			<td>{{ attempt.student.name }}</td>
+			<td>{{ attempt.student.enrollment_number }}</td>
+			<td>{{ attempt.score }}</td>
+			<td>{{ attempt.start_time }}</td>
+			<td>{{ attempt.end_time }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'mcq_test/base.html' %}
+{% block title %}Create Question{% endblock %}
+{% block content %}
+<h2>Create a New Question for {{test.title}} Test</h2>
+<form method="post">
+	{% csrf_token %}
+	{{ question_form.as_p }}
+	<button type="submit">Create Question</button>
+</form>
+<a href="/">Home</a>
+{% endblock %}
